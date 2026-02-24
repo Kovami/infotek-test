@@ -3,7 +3,8 @@
   "description": "My Yii 1.1 Application",
   "require": {
     "php": ">=8.4.0",
-    "yiisoft/yii": "1.1.32"
+    "yiisoft/yii": "1.1.32",
+    "vlucas/phpdotenv": "^5.6"
   }
   ,
   "require-dev": {
