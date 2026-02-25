@@ -16,6 +16,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.services.*',
+        'application.repositories.*',
+        'application.forms.*'
 	),
 
 	'modules'=>array(
@@ -34,8 +37,9 @@ return array(
 	'components'=>array(
 
 		'user'=>array(
-			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            'loginUrl' => array('site/login'),
+            'class' => 'WebUser',
 		),
 
 		// uncomment the following to enable URLs in path-format
@@ -63,7 +67,7 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error, warning, info',
 				),
 				// uncomment the following to show log messages on web pages
 				/*
@@ -73,6 +77,12 @@ return array(
 				*/
 			),
 		),
+
+        'sms' => array(
+            'class' => 'SmsPilot',
+            'apiUrl' => $_ENV['SMS_API_URL'],
+            'apiKey' => $_ENV['SMS_API_KEY']
+        ),
 
 	),
 
